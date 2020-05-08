@@ -24,6 +24,19 @@
   color: white;
 }
 
+text {
+  color: white;
+  font-size: calc(10px + 2vmin);
+}
+button {
+  border-width: 1;
+  border-style: dashed;
+  border-color: white;
+  border-radius: 15px;
+  background-color: transparent;
+  margin: 4px 2px;
+}
+
 .App-link {
   color: #61dafb;
 }

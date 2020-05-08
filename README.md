@@ -42,3 +42,26 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## App purpose
+
+Fill the 7Guis challenge (https://eugenkiss.github.io/7guis/) with different state manager.
+
+The challenge are :
+
+- Counter
+- Temperature Converter
+- Flight booker
+- Timer
+- CRUD
+- Circle drawer
+- Cells
+
+The state manager are
+
+- with Hooks
+- with ApolloClient
+- with Redux
+- with xState
+- with mobx
+  ....

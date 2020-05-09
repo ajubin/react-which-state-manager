@@ -1,1 +1,1 @@
-export { Counter } from './Counter';
+export { Counter as HooksCounter } from './Counter';

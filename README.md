@@ -65,3 +65,8 @@ The state manager are
 - with xState
 - with mobx
   ....
+
+Notes :
+
+We want the store to be use globally ? Why that ?
+We want to have our code maintanable (readable, testable, modulable)

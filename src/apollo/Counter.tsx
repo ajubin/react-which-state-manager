@@ -1,11 +1,17 @@
 import React, { FunctionComponent } from 'react';
 import { BaseCounter } from '../components/BaseCounter';
 import { gql } from 'apollo-boost';
-import { useQuery } from '@apollo/react-hooks';
+import { useQuery, useMutation } from '@apollo/react-hooks';
 
 const GET_COUNTER_VALUE = gql`
   {
     counter @client
+  }
+`;
+
+const INCREASE_COUNTER_VALUE = gql`
+  mutation updateCounter($offset: Number!) @client {
+    updateCounter(offset: $offset) @client
   }
 `;
 
@@ -19,8 +25,8 @@ const GET_COUNTER_VALUE = gql`
  */
 
 export const Counter: FunctionComponent = () => {
-  const { data, client } = useQuery(GET_COUNTER_VALUE);
-  const increment = () => client.writeData({ data: { counter: data.counter + 1 } });
+  const { data } = useQuery(GET_COUNTER_VALUE);
+  const [increment] = useMutation(INCREASE_COUNTER_VALUE, { variables: { offset: 1 } });
 
   return <BaseCounter value={data.counter} onPress={increment} />;
 };

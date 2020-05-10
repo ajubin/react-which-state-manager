@@ -1,34 +1,23 @@
-import { createStore } from 'redux';
-interface ReduxAction {
-  type: string;
-  payload?: any;
-}
+import { configureStore, createSlice } from '@reduxjs/toolkit';
 
 // ----------------- COUNTER ---------------------
-const initialState = {
-  counter: 0,
-};
 
-const INCREMENT = 'INCREMENT';
+export const selectCounter = (state: ReturnType<typeof reduxStore.getState>) => state.counter;
 
-export const actionCreatorIncrement = () => ({
-  type: INCREMENT,
+export const counterSlice = createSlice({
+  name: 'counter',
+  initialState: {
+    counter: 0,
+  },
+  reducers: {
+    increment: (state) => {
+      // use immer js to mutate state directly
+      // however, reducer should not returm
+      state.counter++;
+    },
+  },
 });
 
-export const selectCounter = (state: typeof initialState) => state.counter;
-
-const counterReducer = (state = initialState, action: ReduxAction) => {
-  switch (action.type) {
-    case 'INCREMENT':
-      return {
-        ...state,
-        counter: state.counter + 1,
-      };
-
-    default:
-      return state;
-  }
-};
-
 // ----------------- GLOBAL ---------------------
-export const reduxStore = createStore(counterReducer);
+// Out of the box debugging with RTK
+export const reduxStore = configureStore({ reducer: counterSlice.reducer });

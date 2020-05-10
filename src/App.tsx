@@ -10,6 +10,8 @@ import { apolloClient, ApolloCounter } from './apollo';
 import { Provider as ReduxProvider } from 'react-redux';
 import { ReduxCounter, reduxStore } from './redux';
 
+import { XStateCounter } from './xstate';
+
 function App() {
   return (
     <div className="App">
@@ -22,6 +24,8 @@ function App() {
         <ReduxProvider store={reduxStore}>
           <ReduxCounter />
         </ReduxProvider>
+        <XStateCounter />
+
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>

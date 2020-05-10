@@ -15,6 +15,9 @@ export const counterSlice = createSlice({
       // however, reducer should not returm
       state.counter++;
     },
+    decrement: (state) => {
+      state.counter--;
+    },
   },
 });
 

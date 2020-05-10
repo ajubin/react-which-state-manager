@@ -23,5 +23,8 @@ export const Counter = observer(() => {
   const increment = () => {
     store.increment();
   };
-  return <BaseCounter value={store.counter} onIncrement={increment} />;
+  const decrement = () => {
+    store.decrement();
+  };
+  return <BaseCounter value={store.counter} onIncrement={increment} onDecrement={decrement} />;
 });

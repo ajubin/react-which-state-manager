@@ -6,6 +6,9 @@ export const Counter = () => {
   const increment = () => {
     setValue(value + 1);
   };
+  const decrement = () => {
+    setValue(value - 1);
+  };
 
-  return <BaseCounter value={value} onIncrement={increment} />;
+  return <BaseCounter value={value} onIncrement={increment} onDecrement={decrement} />;
 };

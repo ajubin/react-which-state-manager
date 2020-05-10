@@ -27,6 +27,7 @@ const INCREASE_COUNTER_VALUE = gql`
 export const Counter: FunctionComponent = () => {
   const { data } = useQuery(GET_COUNTER_VALUE);
   const [increment] = useMutation(INCREASE_COUNTER_VALUE, { variables: { offset: 1 } });
+  const [decrement] = useMutation(INCREASE_COUNTER_VALUE, { variables: { offset: -1 } });
 
-  return <BaseCounter value={data.counter} onIncrement={increment} />;
+  return <BaseCounter value={data.counter} onIncrement={increment} onDecrement={decrement} />;
 };

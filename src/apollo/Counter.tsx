@@ -28,5 +28,5 @@ export const Counter: FunctionComponent = () => {
   const { data } = useQuery(GET_COUNTER_VALUE);
   const [increment] = useMutation(INCREASE_COUNTER_VALUE, { variables: { offset: 1 } });
 
-  return <BaseCounter value={data.counter} onPress={increment} />;
+  return <BaseCounter value={data.counter} onIncrement={increment} />;
 };

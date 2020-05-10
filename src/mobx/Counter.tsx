@@ -23,5 +23,5 @@ export const Counter = observer(() => {
   const increment = () => {
     store.increment();
   };
-  return <BaseCounter value={store.counter} onPress={increment} />;
+  return <BaseCounter value={store.counter} onIncrement={increment} />;
 });

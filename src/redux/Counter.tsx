@@ -8,5 +8,5 @@ export const Counter = () => {
   const value = useSelector(selectCounter);
   const increment = () => dispatch(counterSlice.actions.increment());
 
-  return <BaseCounter value={value} onPress={increment} />;
+  return <BaseCounter value={value} onIncrement={increment} />;
 };

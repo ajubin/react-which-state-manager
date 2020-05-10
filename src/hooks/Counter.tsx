@@ -7,5 +7,5 @@ export const Counter = () => {
     setValue(value + 1);
   };
 
-  return <BaseCounter value={value} onPress={increment} />;
+  return <BaseCounter value={value} onIncrement={increment} />;
 };

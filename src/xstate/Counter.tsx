@@ -24,5 +24,5 @@ export const Counter = () => {
   const [state, send] = useMachine(counterMachine);
   const increment = () => send('INC');
 
-  return <BaseCounter value={state.context.count} onPress={increment} />;
+  return <BaseCounter value={state.context.count} onIncrement={increment} />;
 };

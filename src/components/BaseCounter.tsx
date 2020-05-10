@@ -2,10 +2,10 @@ import React, { FunctionComponent } from 'react';
 
 interface BaseCounterProps {
   value: number;
-  onPress: () => void;
+  onIncrement: () => void;
 }
 
-export const BaseCounter: FunctionComponent<BaseCounterProps> = ({ value, onPress }) => {
+export const BaseCounter: FunctionComponent<BaseCounterProps> = ({ value, onIncrement: onPress }) => {
   return (
     <div>
       <button onClick={onPress}>

@@ -1,4 +1,4 @@
-import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { configureStore, createSlice, getDefaultMiddleware, Middleware } from '@reduxjs/toolkit';
 
 // ----------------- COUNTER ---------------------
 
@@ -19,5 +19,16 @@ export const counterSlice = createSlice({
 });
 
 // ----------------- GLOBAL ---------------------
+
+const logger: Middleware = (store) => (next) => (action) => {
+  console.log('dispatching', action);
+  let result = next(action);
+  console.log('next state', store.getState());
+  return result;
+};
+
 // Out of the box debugging with RTK
-export const reduxStore = configureStore({ reducer: counterSlice.reducer });
+export const reduxStore = configureStore({
+  reducer: counterSlice.reducer,
+  middleware: [...getDefaultMiddleware(), logger],
+});

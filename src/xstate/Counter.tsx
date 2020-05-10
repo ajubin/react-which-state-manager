@@ -7,6 +7,7 @@ import { Machine, assign } from 'xstate';
 
 const counterContext = { count: 0 };
 const increment = (context: typeof counterContext) => context.count + 1;
+const decrement = (context: typeof counterContext) => context.count - 1;
 
 const counterMachine = Machine({
   initial: 'active',
@@ -15,6 +16,7 @@ const counterMachine = Machine({
     active: {
       on: {
         INC: { actions: assign({ count: increment }) },
+        DEC: { actions: assign({ count: decrement }) },
       },
     },
   },
@@ -23,6 +25,7 @@ const counterMachine = Machine({
 export const Counter = () => {
   const [state, send] = useMachine(counterMachine);
   const increment = () => send('INC');
+  const decrement = () => send('DEC');
 
-  return <BaseCounter value={state.context.count} onIncrement={increment} />;
+  return <BaseCounter value={state.context.count} onIncrement={increment} onDecrement={decrement} />;
 };

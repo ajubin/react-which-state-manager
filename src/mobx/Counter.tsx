@@ -1,21 +1,7 @@
 import React from 'react';
 import { BaseCounter } from '../components/BaseCounter';
 import { observer } from 'mobx-react';
-import { observable } from 'mobx';
-
-// ----------------- COUNTER MODEL ---------------------
-
-class CounterStore {
-  @observable counter = 0;
-
-  increment() {
-    this.counter++;
-  }
-
-  decrement() {
-    this.counter--;
-  }
-}
+import { CounterStore } from './CounterModel';
 
 const store = new CounterStore();
 

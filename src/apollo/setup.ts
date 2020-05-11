@@ -1,31 +1,23 @@
-import ApolloClient, { InMemoryCache, gql } from 'apollo-boost';
+import ApolloClient, { InMemoryCache } from 'apollo-boost';
+import { counterMutations, initialCounterData } from './CounterModel';
 
 const cache = new InMemoryCache();
+
 export const apolloClient = new ApolloClient({
   cache,
   resolvers: {
     Mutation: {
-      updateCounter: (_, { offset }, { cache }) => {
-        const query = gql`
-          {
-            counter @client
-          }
-        `;
-        const data = cache.readQuery({ query });
-        const newCounterValue = data.counter + offset;
-        cache.writeData({ data: { counter: newCounterValue } });
-        return null;
-      },
+      ...counterMutations,
     },
   },
 });
 
 const initialData = {
-  counter: 0,
+  ...initialCounterData,
 };
 
 cache.writeData({ data: initialData });
 apolloClient.onResetStore(() => {
-  cache.writeData({ data: initialData });
+  cache.writeData({ data: { initialData } });
   return Promise.resolve();
 });

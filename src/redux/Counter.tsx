@@ -1,7 +1,7 @@
 import React from 'react';
 import { BaseCounter } from '../components/BaseCounter';
 import { useSelector, useDispatch } from 'react-redux';
-import { selectCounter, counterSlice } from './setup';
+import { selectCounter, counterSlice } from './CounterModel';
 
 export const Counter = () => {
   const dispatch = useDispatch();

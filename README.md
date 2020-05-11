@@ -46,10 +46,11 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 ## App purpose
 
 Fill the 7Guis challenge (https://eugenkiss.github.io/7guis/) with different state manager.
+It provides an implementation with mobx and react
 
 The challenge are :
 
-- Counter
+- Counter ✅
 - Temperature Converter
 - Flight booker
 - Timer
@@ -70,3 +71,7 @@ Notes :
 
 We want the store to be use globally ? Why that ?
 We want to have our code maintanable (readable, testable, modulable)
+
+Aprentissages après avoir fait le Compteur:
+
+- Tout est assez similaire, la logique pour apollo est complexe à suivre

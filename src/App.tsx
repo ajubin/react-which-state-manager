@@ -29,27 +29,33 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Section title="Hooks">
+        <Section title="Hooks - Local">
+          <HooksCounter />
           <HooksCounter />
         </Section>
-        <Section title="Apollo">
+        <Section title="Apollo - Global">
           <ApolloProvider client={apolloClient}>
+            <ApolloCounter />
             <ApolloCounter />
           </ApolloProvider>
         </Section>
-        <Section title="Redux">
+        <Section title="Redux - Global">
           <ReduxProvider store={reduxStore}>
+            <ReduxCounter />
             <ReduxCounter />
           </ReduxProvider>
         </Section>
-        <Section title="XState">
+        <Section title="XState - Local">
+          <XStateCounter />
           <XStateCounter />
         </Section>
-        <Section title="Mobx">
+        <Section title="Mobx - Global">
+          <MobXCounter />
           <MobXCounter />
         </Section>
-        <Section title="Recoil">
+        <Section title="Recoil - Global">
           <RecoilRoot>
+            <RecoilCounter />
             <RecoilCounter />
           </RecoilRoot>
         </Section>

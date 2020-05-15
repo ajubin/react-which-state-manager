@@ -11,7 +11,11 @@ import { Provider as ReduxProvider } from 'react-redux';
 import { ReduxCounter, reduxStore } from './redux';
 
 import { XStateCounter } from './xstate';
+
 import { MobXCounter } from './mobx';
+
+import { RecoilRoot } from 'recoil';
+import { RecoilCounter } from './recoil';
 
 const Section: FunctionComponent<{ title: string }> = ({ title, children }) => (
   <div style={{ flexDirection: 'row', display: 'flex' }}>
@@ -43,6 +47,11 @@ function App() {
         </Section>
         <Section title="Mobx">
           <MobXCounter />
+        </Section>
+        <Section title="Recoil">
+          <RecoilRoot>
+            <RecoilCounter />
+          </RecoilRoot>
         </Section>
       </header>
     </div>

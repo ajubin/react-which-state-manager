@@ -1,14 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BaseCounter } from '../components/BaseCounter';
+import { useCounter } from './CounterModel';
 
 export const Counter = () => {
-  const [value, setValue] = useState(0);
-  const increment = () => {
-    setValue(value + 1);
-  };
-  const decrement = () => {
-    setValue(value - 1);
-  };
+  const [value, actions] = useCounter();
 
-  return <BaseCounter value={value} onIncrement={increment} onDecrement={decrement} />;
+  return <BaseCounter value={value} onIncrement={actions.increment} onDecrement={actions.decrement} />;
 };
